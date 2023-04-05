@@ -1,0 +1,31 @@
+nome do banco --- allegrastore
+
+----------------------- primeiro
+
+
+CREATE TABLE `produtos` (
+  `codigo_produto` int(11) NOT NULL AUTO_INCREMENT,
+  `descricao_produto` varchar(250) DEFAULT NULL,
+  `modelo_produto` varchar(250) NOT NULL,
+  `tecido_produto` varchar(250) NOT NULL,
+  `cor_produto` varchar(250) NOT NULL,
+  `tamanho_produto` varchar(5) NOT NULL,
+  `quantidade_produto` float NOT NULL DEFAULT 0,
+  PRIMARY KEY (`codigo_produto`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
+
+--------------------------- segundo
+
+CREATE TABLE `vendas` (
+  `codigo_venda` int(11) NOT NULL AUTO_INCREMENT,
+  `codigo_produto` int(11) NOT NULL,
+  `quantidade_venda` float NOT NULL DEFAULT 0,
+  `tipo_venda` varchar(20) NOT NULL,
+  `data_saida` datetime NOT NULL,
+  `data_retorno` datetime DEFAULT NULL,
+  `venda_realizada` char(1) DEFAULT NULL,
+  PRIMARY KEY (`codigo_venda`),
+  KEY `vendas_FK` (`codigo_produto`),
+  CONSTRAINT `vendas_FK` FOREIGN KEY (`codigo_produto`) REFERENCES `produtos` (`codigo_produto`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+
