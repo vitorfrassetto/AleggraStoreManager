@@ -29,11 +29,11 @@
                         </section>
                     </article>
                     <section class="btn-container">
-                        <article class="btnVoltar">
-                            <a href="index.html" id="btnCadastro">Voltar</a>
+                        <article>
+                            <a href="index.html" class="btnVoltar">Voltar</a>
                         </article>
-                        <article class="btnVendas">
-                            <input type="submit" value="Avançar" id="btnCadastro">
+                        <article>
+                            <input type="submit" value="Avançar" class="btnCadastro">
                         </article>
                     </section>
                 </section>
@@ -43,11 +43,6 @@
         </section>
 
     </main>
-
-    <footer>
-        <section class="rodape_img">
-            <img class="logo" src="img/logo.png" alt="logo">
-        </section>
 </body>
 
 </html>

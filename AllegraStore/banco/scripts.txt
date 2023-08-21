@@ -29,3 +29,37 @@ CREATE TABLE `vendas` (
   CONSTRAINT `vendas_FK` FOREIGN KEY (`codigo_produto`) REFERENCES `produtos` (`codigo_produto`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
+
+--------------------------- terceiro
+
+CREATE TABLE `param_cores` (
+  `codigo` int(11) NOT NULL,
+  `descricao` varchar(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--------------------------- quarto
+
+CREATE TABLE `param_modelos` (
+  `codigo` int(11) NOT NULL,
+  `descricao` varchar(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--------------------------- quinto
+
+CREATE TABLE `param_produtos` (
+  `codigo` int(11) NOT NULL,
+  `descricao` varchar(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+
+--------------------------- sexto
+
+CREATE TABLE `param_tecidos` (
+  `codigo` int(11) NOT NULL,
+  `descricao` varchar(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+
+ALTER TABLE allegrastore
+ADD COLUMN valor_produto DECIMAL(10, 2);
+

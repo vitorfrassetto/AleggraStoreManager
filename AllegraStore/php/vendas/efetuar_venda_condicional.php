@@ -53,6 +53,6 @@ if ($RowUpdateVenda) {
 
 if ($result) {
   echo "<script language='javascript' type='text/javascript'>
-        alert('Venda condicional registrada com sucesso!');window.location.href='../../venda.php';
+        alert('Venda condicional registrada com sucesso!');window.location.href='../../saida.php';
       </script>";
 }

@@ -16,7 +16,7 @@ while ($rowValid = mysqli_fetch_assoc($resultValidacao)) {
     //Informa que o estoque esta sem saldo.
 
     echo "<script language='javascript' type='text/javascript'>
-          alert('Sem estoque para este produto!');window.location.href='../../venda_registrar.php';
+          alert('Sem estoque para este produto!');window.location.href='../../venda.php';
         </script>";
 
     return false;

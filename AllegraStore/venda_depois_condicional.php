@@ -19,7 +19,8 @@
         $codigo = $_GET['cod_produto'];
         $venda = $_GET['cod_produto_venda'];
 
-        $query = "SELECT * FROM produtos WHERE codigo_produto = " . $codigo;
+        $query = "SELECT * FROM produtos INNER JOIN vendas ON produtos.codigo_produto = " . $codigo . " AND vendas.codigo_produto = " . $codigo;
+
         $resultProdutos = mysqli_query($conexao, $query);
 
         $rowProduto = mysqli_fetch_assoc($resultProdutos);
@@ -30,6 +31,8 @@
             $tecidoProduto = $rowProduto['tecido_produto'];
             $corProduto = $rowProduto['cor_produto'];
             $tamanhoProduto = $rowProduto['tamanho_produto'];
+            $quantidadeTotal = $rowProduto['quantidade_venda'];
+            $valor = $rowProduto['valor_produto'];
         } else {
             echo "<script language='javascript' type='text/javascript'>
                 alert('Produto não existe no estoque');window.location.href='venda.php';
@@ -80,15 +83,22 @@
                         </section>
                         <section class="cont-infos">
                             <label for="quantidade">Quantidade:</label>
-                            <input placeholder="Quantidade" class="input-digitavel" id="formDentroSaida" type="number" min=1 name="quantidade" required>
+                            <input placeholder="Quantidade" class="input-digitavel" id="formDentroSaida" type="number" min=0 max=<?php echo $quantidadeTotal; ?> name="quantidade" required>
+                        </section>
+                        <section class="cont-infos">
+                            <label for="quantidade">Valor (R$):</label>
+                            <input placeholder="Valor unitário" class="input-desabilitado" id="formDentroSaida" value="<?php echo $valor; ?>" type="number" min=0 step=".01" name="valor">
+                        </section> 
+                        <section class="cont-infos">
+                            <p>Quantidade disponível: <?php echo $quantidadeTotal; ?></p>
                         </section>
                     </article>
                     <section class="btn-container">
-                        <article class="btnVoltar">
-                            <a href="index.html" id="btnCadastro">Voltar</a>
+                        <article>
+                            <a href="index.html" class="btnVoltar">Voltar</a>
                         </article>
-                        <article class="btnVendas">
-                            <input type="submit" value="Avançar" id="btnCadastro">
+                        <article>
+                            <input type="submit" value="Avançar" class="btnCadastro">
                         </article>
                     </section>
                 </section>
@@ -98,11 +108,6 @@
         </section>
 
     </main>
-
-    <footer>
-        <section class="rodape_img">
-            <img class="logo" src="img/logo.png" alt="logo">
-        </section>
 </body>
 
 </html>
